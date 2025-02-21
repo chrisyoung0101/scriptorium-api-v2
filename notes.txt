@@ -1,0 +1,44 @@
+
+
+
+/Users/chrisyoung/IdeaProjects/scriptorium-api-v2
+
+
+
+
+
+CorsConfig.java, SecurityConfig.java, DocumentController.java, Document.java, DocumentRepository.java, ScriptoriumApiV2Application.java, application.yaml
+
+
+
+--------------
+--------------Should be a good application.yaml for running local.
+
+server:
+  port: 8080
+
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+      idle-timeout: 10000
+      max-lifetime: 30000
+    url: jdbc:postgresql://dpg-cu7bvg5svqrc7397mv50-a.singapore-postgres.render.com:5432/scriptorium_db
+    username: scriptorium_db_user
+    password: 9y90F3y852WQefuSKQhuW0ZQbVBIeY8Q
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # Creates/Updates tables automatically
+    show-sql: true      # Logs SQL statements
+    open-in-view: false  # This allows lazy loading during view rendering but can lead to N+1 query issues.
+
+
+
+# Optional: Enable logging for easier debugging
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

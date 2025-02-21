@@ -1,0 +1,14 @@
+# Ignore Gradle build files
+/build
+/.gradle
+
+# IDE-specific files
+*.iml
+.idea/
+*.log
+
+# OS-specific files
+.DS_Store
+
+# Node modules (if any)
+node_modules/

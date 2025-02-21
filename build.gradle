@@ -1,0 +1,45 @@
+plugins {
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Core Spring Boot Web Starter (REST APIs)
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // PostgreSQL JDBC Driver with version pinning
+    runtimeOnly 'org.postgresql:postgresql:42.7.1'
+
+    // Spring Data JPA for database interaction
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Validation (for request payloads)
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // CORS Support & Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // JSON parsing
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    // Lombok (to reduce boilerplate)
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Lombok for tests
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    // Testing dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+}
