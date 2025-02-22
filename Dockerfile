@@ -3,10 +3,9 @@ FROM openjdk:17-jdk-slim
 
 # Set environment variables
 ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
-    JAVA_OPTS="" \
-    PORT=8080
+    JAVA_OPTS=""
 
-# Expose the port
+# Expose the port dynamically assigned by Render
 EXPOSE 8080
 
 # Set the working directory
@@ -25,5 +24,6 @@ RUN chmod +x gradlew
 # Build the application
 RUN ./gradlew build -x test
 
-# Run the Spring Boot app
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar build/libs/*SNAPSHOT.jar"]
+# Run the Spring Boot app using the dynamically assigned PORT
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Dserver.port=$PORT -jar build/libs/*SNAPSHOT.jar"]
+
